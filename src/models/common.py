@@ -108,12 +108,16 @@ def get_decoder(cfg: DictConfig, n_channels: int, n_classes: int, num_timesteps:
 
     return decoder
 
+# def get_encoder(cfg):
+#     if cfg.model.architecture == "Unet":
+
 
 def get_model(cfg: DictConfig, feature_dim: int, n_classes: int, num_timesteps: int) -> MODELS:
     model: MODELS
     if cfg.model.name == "Spec2DCNN":
         feature_extractor = get_feature_extractor(cfg, feature_dim, num_timesteps)
         decoder = get_decoder(cfg, feature_extractor.height, n_classes, num_timesteps)
+
         model = Spec2DCNN(
             feature_extractor=feature_extractor,
             decoder=decoder,
