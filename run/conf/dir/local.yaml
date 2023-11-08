@@ -1,0 +1,5 @@
+data_dir: /mnt/data/psemchyshyn/sleep-detection/data
+processed_dir: /mnt/data/psemchyshyn/sleep-detection/processed_data
+output_dir: /mnt/data/psemchyshyn/sleep-detection/results/output
+model_dir: /mnt/data/psemchyshyn/sleep-detection/results/output/train
+sub_dir: ./

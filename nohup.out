@@ -1,0 +1,695 @@
+Global seed set to 42
+[2023-11-07 09:26:13,707][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231107_092614-x1ey26l7
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet++
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/x1ey26l7
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 43.6 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ UnetPlusPlus      │ 26.1 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 43.6 M                                                        
+Non-trainable params: 0                                                         
+Total params: 43.6 M                                                            
+Total estimated model params size (MB): 174                                     
+Epoch 0, global step 119: 'val_loss' reached 0.05733 (best 0.05733), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=0-step=119.ckpt' as top 1
+Saved best model inf -> 0.05727474274890904
+Epoch 1, global step 238: 'val_loss' reached 0.04628 (best 0.04628), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=1-step=238.ckpt' as top 1
+Saved best model 0.05727474274890904 -> 0.04630894854738815
+Epoch 2, global step 357: 'val_loss' reached 0.04411 (best 0.04411), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=2-step=357.ckpt' as top 1
+Saved best model 0.04630894854738815 -> 0.04408201778813309
+Epoch 3, global step 476: 'val_loss' reached 0.03407 (best 0.03407), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=3-step=476.ckpt' as top 1
+Saved best model 0.04408201778813309 -> 0.03406608187815557
+Epoch 4, global step 595: 'val_loss' was not in top 1
+Epoch 5, global step 714: 'val_loss' reached 0.03269 (best 0.03269), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=5-step=714.ckpt' as top 1
+Saved best model 0.03406608187815557 -> 0.032692333029595434
+Epoch 6, global step 833: 'val_loss' was not in top 1
+Epoch 7, global step 952: 'val_loss' was not in top 1
+Epoch 8, global step 1071: 'val_loss' was not in top 1
+Epoch 9, global step 1190: 'val_loss' was not in top 1
+Epoch 10, global step 1309: 'val_loss' reached 0.03183 (best 0.03183), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=10-step=1309.ckpt' as top 1
+Saved best model 0.032692333029595434 -> 0.03184358330770389
+Epoch 11, global step 1428: 'val_loss' was not in top 1
+Epoch 12, global step 1547: 'val_loss' reached 0.02789 (best 0.02789), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=12-step=1547.ckpt' as top 1
+Saved best model 0.03184358330770389 -> 0.02790713772819137
+Epoch 13, global step 1666: 'val_loss' was not in top 1
+Epoch 14, global step 1785: 'val_loss' was not in top 1
+Epoch 15, global step 1904: 'val_loss' was not in top 1
+Epoch 16, global step 2023: 'val_loss' was not in top 1
+Epoch 17, global step 2142: 'val_loss' was not in top 1
+Epoch 18, global step 2261: 'val_loss' was not in top 1
+Epoch 19, global step 2380: 'val_loss' was not in top 1
+Epoch 20, global step 2499: 'val_loss' reached 0.02687 (best 0.02687), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=20-step=2499.ckpt' as top 1
+Saved best model 0.02790713772819137 -> 0.026879085201634376
+Epoch 21, global step 2618: 'val_loss' was not in top 1
+Epoch 22, global step 2737: 'val_loss' was not in top 1
+Epoch 23, global step 2856: 'val_loss' was not in top 1
+Epoch 24, global step 2975: 'val_loss' was not in top 1
+Epoch 25, global step 3094: 'val_loss' was not in top 1
+Epoch 26, global step 3213: 'val_loss' was not in top 1
+Epoch 27, global step 3332: 'val_loss' reached 0.02675 (best 0.02675), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=27-step=3332.ckpt' as top 1
+Saved best model 0.026879085201634376 -> 0.026752564998263405
+Epoch 28, global step 3451: 'val_loss' was not in top 1
+Epoch 29, global step 3570: 'val_loss' was not in top 1
+Epoch 30, global step 3689: 'val_loss' was not in top 1
+Epoch 31, global step 3808: 'val_loss' reached 0.02572 (best 0.02572), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=31-step=3808.ckpt' as top 1
+Saved best model 0.026752564998263405 -> 0.025727632944703423
+Epoch 32, global step 3927: 'val_loss' was not in top 1
+Epoch 33, global step 4046: 'val_loss' was not in top 1
+Epoch 34, global step 4165: 'val_loss' was not in top 1
+Epoch 35, global step 4284: 'val_loss' was not in top 1
+Epoch 36, global step 4403: 'val_loss' was not in top 1
+Epoch 37, global step 4522: 'val_loss' reached 0.02437 (best 0.02437), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=37-step=4522.ckpt' as top 1
+Saved best model 0.025727632944703423 -> 0.024376249507482822
+Epoch 38, global step 4641: 'val_loss' was not in top 1
+Epoch 39, global step 4760: 'val_loss' was not in top 1
+Epoch 40, global step 4879: 'val_loss' was not in top 1
+Epoch 41, global step 4998: 'val_loss' was not in top 1
+Epoch 42, global step 5117: 'val_loss' was not in top 1
+Epoch 43, global step 5236: 'val_loss' was not in top 1
+Epoch 44, global step 5355: 'val_loss' was not in top 1
+Epoch 45, global step 5474: 'val_loss' was not in top 1
+Epoch 46, global step 5593: 'val_loss' was not in top 1
+Epoch 47, global step 5712: 'val_loss' was not in top 1
+Epoch 48, global step 5831: 'val_loss' was not in top 1
+Epoch 49, global step 5950: 'val_loss' was not in top 1
+Epoch 50, global step 6069: 'val_loss' was not in top 1
+Epoch 51, global step 6188: 'val_loss' was not in top 1
+Epoch 52, global step 6307: 'val_loss' was not in top 1
+Epoch 53, global step 6426: 'val_loss' was not in top 1
+Epoch 54, global step 6545: 'val_loss' was not in top 1
+Epoch 55, global step 6664: 'val_loss' was not in top 1
+Epoch 56, global step 6783: 'val_loss' was not in top 1
+Epoch 57, global step 6902: 'val_loss' was not in top 1
+Epoch 58, global step 7021: 'val_loss' was not in top 1
+Epoch 59, global step 7140: 'val_loss' was not in top 1
+Epoch 60, global step 7259: 'val_loss' was not in top 1
+Epoch 61, global step 7378: 'val_loss' was not in top 1
+Epoch 62, global step 7497: 'val_loss' was not in top 1
+Epoch 63, global step 7616: 'val_loss' was not in top 1
+Epoch 64, global step 7735: 'val_loss' reached 0.02432 (best 0.02432), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=64-step=7735.ckpt' as top 1
+Saved best model 0.024376249507482822 -> 0.024331668992017993
+Epoch 65, global step 7854: 'val_loss' was not in top 1
+Epoch 66, global step 7973: 'val_loss' reached 0.02409 (best 0.02409), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=66-step=7973.ckpt' as top 1
+Saved best model 0.024331668992017993 -> 0.024103963047586725
+Epoch 67, global step 8092: 'val_loss' was not in top 1
+Epoch 68, global step 8211: 'val_loss' reached 0.02398 (best 0.02398), saving model to './child-mind-institute-detect-sleep-states/x1ey26l7/checkpoints/epoch=68-step=8211.ckpt' as top 1
+Saved best model 0.024103963047586725 -> 0.023983280648190577
+Epoch 69, global step 8330: 'val_loss' was not in top 1
+Epoch 70, global step 8449: 'val_loss' was not in top 1
+Epoch 71, global step 8568: 'val_loss' was not in top 1
+Epoch 72, global step 8687: 'val_loss' was not in top 1
+Epoch 73, global step 8806: 'val_loss' was not in top 1
+Epoch 74, global step 8925: 'val_loss' was not in top 1
+Epoch 75, global step 9044: 'val_loss' was not in top 1
+Epoch 76, global step 9163: 'val_loss' was not in top 1
+Epoch 77, global step 9282: 'val_loss' was not in top 1
+Epoch 78, global step 9401: 'val_loss' was not in top 1
+Epoch 79, global step 9520: 'val_loss' was not in top 1
+`Trainer.fit` stopped: `max_steps=9520` reached.
+Epoch 79/79 ━━━━━━━━━━━━━━━━ 119/119 0:00:56 •        2.18it/s v_num: 26l7      
+                                     0:00:00                   val_loss: 0.024  
+                                                               val_score: 0.737 
+                                                               train_loss: 0.154
+[2023-11-07 11:15:34,999][train.py][INFO] - Extracting and saving best weights: model_weights.pth
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:               epoch ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:            lr-AdamW ███████▇▇▇▇▇▇▆▆▆▆▅▅▅▄▄▄▄▃▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁
+wandb:          train_loss █▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: trainer/global_step ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:            val_loss █▅▄▃▃▃▂▃▃▂▂▂▂▂▂▂▂▂▁▂▂▂▁▁▂▁▂▁▂▁▁▁▁▁▁▁▁▁▁▁
+wandb:           val_score ▁▃▃▄▄▇▇▇▇███████████████████████████████
+wandb: 
+wandb: Run summary:
+wandb:               epoch 79
+wandb:            lr-AdamW 0.0
+wandb:          train_loss 0.15409
+wandb: trainer/global_step 9519
+wandb:            val_loss 0.02449
+wandb:           val_score 0.73667
+wandb: 
+wandb: 🚀 View run duration_5760_downsample_2_unet++ at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/x1ey26l7
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231107_092614-x1ey26l7/logs
+Global seed set to 42
+[2023-11-07 11:24:28,245][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231107_112429-x0esk8ea
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/x0esk8ea
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 41.9 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ Unet              │ 24.4 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 41.9 M                                                        
+Non-trainable params: 0                                                         
+Total params: 41.9 M                                                            
+Total estimated model params size (MB): 167                                     
+Epoch 0, global step 119: 'val_loss' reached 0.05295 (best 0.05295), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=0-step=119.ckpt' as top 1
+Saved best model inf -> 0.052896184075796444
+Epoch 1, global step 238: 'val_loss' was not in top 1
+Epoch 2, global step 357: 'val_loss' reached 0.04231 (best 0.04231), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=2-step=357.ckpt' as top 1
+Saved best model 0.052896184075796444 -> 0.042274823877960443
+Epoch 3, global step 476: 'val_loss' reached 0.03972 (best 0.03972), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=3-step=476.ckpt' as top 1
+Saved best model 0.042274823877960443 -> 0.03971988273729009
+Epoch 4, global step 595: 'val_loss' reached 0.03123 (best 0.03123), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=4-step=595.ckpt' as top 1
+Saved best model 0.03971988273729009 -> 0.031233797141270624
+Epoch 5, global step 714: 'val_loss' was not in top 1
+Epoch 6, global step 833: 'val_loss' was not in top 1
+Epoch 7, global step 952: 'val_loss' was not in top 1
+Epoch 8, global step 1071: 'val_loss' was not in top 1
+Epoch 9, global step 1190: 'val_loss' reached 0.03100 (best 0.03100), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=9-step=1190.ckpt' as top 1
+Saved best model 0.031233797141270624 -> 0.031002178967048395
+Epoch 10, global step 1309: 'val_loss' reached 0.02884 (best 0.02884), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=10-step=1309.ckpt' as top 1
+Saved best model 0.031002178967048395 -> 0.028825988552058177
+Epoch 11, global step 1428: 'val_loss' was not in top 1
+Epoch 12, global step 1547: 'val_loss' was not in top 1
+Epoch 13, global step 1666: 'val_loss' was not in top 1
+Epoch 14, global step 1785: 'val_loss' was not in top 1
+Epoch 15, global step 1904: 'val_loss' was not in top 1
+Epoch 16, global step 2023: 'val_loss' was not in top 1
+Epoch 17, global step 2142: 'val_loss' reached 0.02855 (best 0.02855), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=17-step=2142.ckpt' as top 1
+Saved best model 0.028825988552058177 -> 0.028537365072869407
+Epoch 18, global step 2261: 'val_loss' was not in top 1
+Epoch 19, global step 2380: 'val_loss' was not in top 1
+Epoch 20, global step 2499: 'val_loss' was not in top 1
+Epoch 21, global step 2618: 'val_loss' was not in top 1
+Epoch 22, global step 2737: 'val_loss' was not in top 1
+Epoch 23, global step 2856: 'val_loss' was not in top 1
+Epoch 24, global step 2975: 'val_loss' reached 0.02698 (best 0.02698), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=24-step=2975.ckpt' as top 1
+Saved best model 0.028537365072869407 -> 0.026997412591925916
+Epoch 25, global step 3094: 'val_loss' was not in top 1
+Epoch 26, global step 3213: 'val_loss' was not in top 1
+Epoch 27, global step 3332: 'val_loss' reached 0.02605 (best 0.02605), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=27-step=3332.ckpt' as top 1
+Saved best model 0.026997412591925916 -> 0.026057722379256115
+Epoch 28, global step 3451: 'val_loss' was not in top 1
+Epoch 29, global step 3570: 'val_loss' was not in top 1
+Epoch 30, global step 3689: 'val_loss' was not in top 1
+Epoch 31, global step 3808: 'val_loss' reached 0.02598 (best 0.02598), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=31-step=3808.ckpt' as top 1
+Saved best model 0.026057722379256115 -> 0.025985706384780982
+Epoch 32, global step 3927: 'val_loss' was not in top 1
+Epoch 33, global step 4046: 'val_loss' was not in top 1
+Epoch 34, global step 4165: 'val_loss' was not in top 1
+Epoch 35, global step 4284: 'val_loss' was not in top 1
+Epoch 36, global step 4403: 'val_loss' was not in top 1
+Epoch 37, global step 4522: 'val_loss' was not in top 1
+Epoch 38, global step 4641: 'val_loss' was not in top 1
+Epoch 39, global step 4760: 'val_loss' was not in top 1
+Epoch 40, global step 4879: 'val_loss' reached 0.02548 (best 0.02548), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=40-step=4879.ckpt' as top 1
+Saved best model 0.025985706384780982 -> 0.025500728165891193
+Epoch 41, global step 4998: 'val_loss' was not in top 1
+Epoch 42, global step 5117: 'val_loss' reached 0.02493 (best 0.02493), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=42-step=5117.ckpt' as top 1
+Saved best model 0.025500728165891193 -> 0.024942378091027603
+Epoch 43, global step 5236: 'val_loss' was not in top 1
+Epoch 44, global step 5355: 'val_loss' was not in top 1
+Epoch 45, global step 5474: 'val_loss' was not in top 1
+Epoch 46, global step 5593: 'val_loss' was not in top 1
+Epoch 47, global step 5712: 'val_loss' was not in top 1
+Epoch 48, global step 5831: 'val_loss' was not in top 1
+Epoch 49, global step 5950: 'val_loss' was not in top 1
+Epoch 50, global step 6069: 'val_loss' was not in top 1
+Epoch 51, global step 6188: 'val_loss' was not in top 1
+Epoch 52, global step 6307: 'val_loss' was not in top 1
+Epoch 53, global step 6426: 'val_loss' was not in top 1
+Epoch 54, global step 6545: 'val_loss' was not in top 1
+Epoch 55, global step 6664: 'val_loss' was not in top 1
+Epoch 56, global step 6783: 'val_loss' was not in top 1
+Epoch 57, global step 6902: 'val_loss' was not in top 1
+Epoch 58, global step 7021: 'val_loss' was not in top 1
+Epoch 59, global step 7140: 'val_loss' was not in top 1
+Epoch 60, global step 7259: 'val_loss' was not in top 1
+Epoch 61, global step 7378: 'val_loss' was not in top 1
+Epoch 62, global step 7497: 'val_loss' was not in top 1
+Epoch 63, global step 7616: 'val_loss' reached 0.02473 (best 0.02473), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=63-step=7616.ckpt' as top 1
+Saved best model 0.024942378091027603 -> 0.024734759919918976
+Epoch 64, global step 7735: 'val_loss' was not in top 1
+Epoch 65, global step 7854: 'val_loss' was not in top 1
+Epoch 66, global step 7973: 'val_loss' reached 0.02368 (best 0.02368), saving model to './child-mind-institute-detect-sleep-states/x0esk8ea/checkpoints/epoch=66-step=7973.ckpt' as top 1
+Saved best model 0.024734759919918976 -> 0.023688367053339047
+Epoch 67, global step 8092: 'val_loss' was not in top 1
+Epoch 68, global step 8211: 'val_loss' was not in top 1
+Epoch 69, global step 8330: 'val_loss' was not in top 1
+Epoch 70, global step 8449: 'val_loss' was not in top 1
+Epoch 71, global step 8568: 'val_loss' was not in top 1
+Epoch 72, global step 8687: 'val_loss' was not in top 1
+Epoch 73, global step 8806: 'val_loss' was not in top 1
+Epoch 74, global step 8925: 'val_loss' was not in top 1
+Epoch 75, global step 9044: 'val_loss' was not in top 1
+Epoch 76, global step 9163: 'val_loss' was not in top 1
+Epoch 77, global step 9282: 'val_loss' was not in top 1
+Epoch 78, global step 9401: 'val_loss' was not in top 1
+Epoch 79, global step 9520: 'val_loss' was not in top 1
+`Trainer.fit` stopped: `max_steps=9520` reached.
+Epoch 79/79 ━━━━━━━━━━━━━━━━ 119/119 0:00:33 •        3.88it/s v_num: k8ea      
+                                     0:00:00                   val_loss: 0.025  
+                                                               val_score: 0.747 
+                                                               train_loss: 0.155
+[2023-11-07 12:27:03,445][train.py][INFO] - Extracting and saving best weights: model_weights.pth
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:               epoch ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:            lr-AdamW ███████▇▇▇▇▇▇▆▆▆▆▅▅▅▄▄▄▄▃▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁
+wandb:          train_loss █▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: trainer/global_step ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:            val_loss █▅▃▄▃▂▃▃▃▃▃▃▂▃▃▂▂▂▂▂▁▁▂▂▂▁▂▁▂▂▁▁▂▁▁▁▁▁▁▁
+wandb:           val_score ▁▄▄▇▇▇▇▇████▇███████████████████████████
+wandb: 
+wandb: Run summary:
+wandb:               epoch 79
+wandb:            lr-AdamW 0.0
+wandb:          train_loss 0.15453
+wandb: trainer/global_step 9519
+wandb:            val_loss 0.02454
+wandb:           val_score 0.74657
+wandb: 
+wandb: 🚀 View run duration_5760_downsample_2_unet at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/x0esk8ea
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231107_112429-x0esk8ea/logs
+Global seed set to 42
+[2023-11-07 12:36:30,467][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231107_123631-ev0fadt2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet_batch_size_64
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/ev0fadt2
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 41.9 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ Unet              │ 24.4 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 41.9 M                                                        
+Non-trainable params: 0                                                         
+Total params: 41.9 M                                                            
+Total estimated model params size (MB): 167                                     
+Epoch 0, global step 59: 'val_loss' reached 0.08050 (best 0.08050), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=0-step=59.ckpt' as top 1
+Saved best model inf -> 0.08030438160915908
+Epoch 1, global step 118: 'val_loss' reached 0.04746 (best 0.04746), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=1-step=118.ckpt' as top 1
+Saved best model 0.08030438160915908 -> 0.0473943111290665
+Epoch 2, global step 177: 'val_loss' reached 0.04517 (best 0.04517), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=2-step=177.ckpt' as top 1
+Saved best model 0.0473943111290665 -> 0.04508735543411029
+Epoch 3, global step 236: 'val_loss' reached 0.03995 (best 0.03995), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=3-step=236.ckpt' as top 1
+Saved best model 0.04508735543411029 -> 0.039861110179979155
+Epoch 4, global step 295: 'val_loss' reached 0.03558 (best 0.03558), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=4-step=295.ckpt' as top 1
+Saved best model 0.039861110179979155 -> 0.035555505310185254
+Epoch 5, global step 354: 'val_loss' reached 0.03214 (best 0.03214), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=5-step=354.ckpt' as top 1
+Saved best model 0.035555505310185254 -> 0.03215794646377234
+Epoch 6, global step 413: 'val_loss' reached 0.03196 (best 0.03196), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=6-step=413.ckpt' as top 1
+Saved best model 0.03215794646377234 -> 0.03194704772230532
+Epoch 7, global step 472: 'val_loss' was not in top 1
+Epoch 8, global step 531: 'val_loss' was not in top 1
+Epoch 9, global step 590: 'val_loss' was not in top 1
+Epoch 10, global step 649: 'val_loss' reached 0.03075 (best 0.03075), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=10-step=649.ckpt' as top 1
+Saved best model 0.03194704772230532 -> 0.030729625692689104
+Epoch 11, global step 708: 'val_loss' was not in top 1
+Epoch 12, global step 767: 'val_loss' reached 0.02819 (best 0.02819), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=12-step=767.ckpt' as top 1
+Saved best model 0.030729625692689104 -> 0.02819742796954846
+Epoch 13, global step 826: 'val_loss' was not in top 1
+Epoch 14, global step 885: 'val_loss' was not in top 1
+Epoch 15, global step 944: 'val_loss' was not in top 1
+Epoch 16, global step 1003: 'val_loss' reached 0.02804 (best 0.02804), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=16-step=1003.ckpt' as top 1
+Saved best model 0.02819742796954846 -> 0.02803185073916163
+Epoch 17, global step 1062: 'val_loss' was not in top 1
+Epoch 18, global step 1121: 'val_loss' was not in top 1
+Epoch 19, global step 1180: 'val_loss' was not in top 1
+Epoch 20, global step 1239: 'val_loss' reached 0.02593 (best 0.02593), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=20-step=1239.ckpt' as top 1
+Saved best model 0.02803185073916163 -> 0.025908931838593593
+Epoch 21, global step 1298: 'val_loss' was not in top 1
+Epoch 22, global step 1357: 'val_loss' was not in top 1
+Epoch 23, global step 1416: 'val_loss' was not in top 1
+Epoch 24, global step 1475: 'val_loss' was not in top 1
+Epoch 25, global step 1534: 'val_loss' was not in top 1
+Epoch 26, global step 1593: 'val_loss' was not in top 1
+Epoch 27, global step 1652: 'val_loss' was not in top 1
+Epoch 28, global step 1711: 'val_loss' was not in top 1
+Epoch 29, global step 1770: 'val_loss' was not in top 1
+Epoch 30, global step 1829: 'val_loss' was not in top 1
+Epoch 31, global step 1888: 'val_loss' was not in top 1
+Epoch 32, global step 1947: 'val_loss' was not in top 1
+Epoch 33, global step 2006: 'val_loss' was not in top 1
+Epoch 34, global step 2065: 'val_loss' was not in top 1
+Epoch 35, global step 2124: 'val_loss' reached 0.02522 (best 0.02522), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=35-step=2124.ckpt' as top 1
+Saved best model 0.025908931838593593 -> 0.025270982657706265
+Epoch 36, global step 2183: 'val_loss' was not in top 1
+Epoch 37, global step 2242: 'val_loss' was not in top 1
+Epoch 38, global step 2301: 'val_loss' was not in top 1
+Epoch 39, global step 2360: 'val_loss' reached 0.02493 (best 0.02493), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=39-step=2360.ckpt' as top 1
+Saved best model 0.025270982657706265 -> 0.024974597288651
+Epoch 40, global step 2419: 'val_loss' was not in top 1
+Epoch 41, global step 2478: 'val_loss' was not in top 1
+Epoch 42, global step 2537: 'val_loss' was not in top 1
+Saved best model 0.024974597288651 -> 0.024951344911977157
+Epoch 43, global step 2596: 'val_loss' was not in top 1
+Epoch 44, global step 2655: 'val_loss' was not in top 1
+Epoch 45, global step 2714: 'val_loss' was not in top 1
+Epoch 46, global step 2773: 'val_loss' was not in top 1
+Epoch 47, global step 2832: 'val_loss' was not in top 1
+Epoch 48, global step 2891: 'val_loss' reached 0.02493 (best 0.02493), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=48-step=2891.ckpt' as top 1
+Epoch 49, global step 2950: 'val_loss' was not in top 1
+Epoch 50, global step 3009: 'val_loss' was not in top 1
+Epoch 51, global step 3068: 'val_loss' was not in top 1
+Epoch 52, global step 3127: 'val_loss' was not in top 1
+Saved best model 0.024951344911977157 -> 0.02494182367962295
+Epoch 53, global step 3186: 'val_loss' was not in top 1
+Epoch 54, global step 3245: 'val_loss' was not in top 1
+Epoch 55, global step 3304: 'val_loss' was not in top 1
+Epoch 56, global step 3363: 'val_loss' was not in top 1
+Epoch 57, global step 3422: 'val_loss' reached 0.02371 (best 0.02371), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=57-step=3422.ckpt' as top 1
+Saved best model 0.02494182367962295 -> 0.023720241554608373
+Epoch 58, global step 3481: 'val_loss' was not in top 1
+Epoch 59, global step 3540: 'val_loss' was not in top 1
+Epoch 60, global step 3599: 'val_loss' reached 0.02349 (best 0.02349), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=60-step=3599.ckpt' as top 1
+Saved best model 0.023720241554608373 -> 0.023447968502296135
+Epoch 61, global step 3658: 'val_loss' reached 0.02348 (best 0.02348), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=61-step=3658.ckpt' as top 1
+Epoch 62, global step 3717: 'val_loss' was not in top 1
+Epoch 63, global step 3776: 'val_loss' was not in top 1
+Epoch 64, global step 3835: 'val_loss' reached 0.02318 (best 0.02318), saving model to './child-mind-institute-detect-sleep-states/ev0fadt2/checkpoints/epoch=64-step=3835.ckpt' as top 1
+Saved best model 0.023447968502296135 -> 0.02316683898358238
+Epoch 65, global step 3894: 'val_loss' was not in top 1
+Epoch 66, global step 3953: 'val_loss' was not in top 1
+Epoch 67, global step 4012: 'val_loss' was not in top 1
+Epoch 68, global step 4071: 'val_loss' was not in top 1
+Epoch 69, global step 4130: 'val_loss' was not in top 1
+Epoch 70, global step 4189: 'val_loss' was not in top 1
+Epoch 71, global step 4248: 'val_loss' was not in top 1
+Epoch 72, global step 4307: 'val_loss' was not in top 1
+Epoch 73, global step 4366: 'val_loss' was not in top 1
+Epoch 74, global step 4425: 'val_loss' was not in top 1
+Epoch 75, global step 4484: 'val_loss' was not in top 1
+Epoch 76, global step 4543: 'val_loss' was not in top 1
+Epoch 77, global step 4602: 'val_loss' was not in top 1
+Epoch 78, global step 4661: 'val_loss' was not in top 1
+Epoch 79, global step 4720: 'val_loss' was not in top 1
+`Trainer.fit` stopped: `max_steps=4720` reached.
+Epoch 79/79 ━━━━━━━━━━━━━━━━━ 59/59 0:00:31 • 0:00:00 2.15it/s v_num: adt2      
+                                                               val_loss: 0.024  
+                                                               val_score: 0.73  
+                                                               train_loss: 0.154
+[2023-11-07 13:38:25,944][train.py][INFO] - Extracting and saving best weights: model_weights.pth
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.004 MB of 0.004 MB uploaded (0.000 MB deduped)wandb: \ 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb: | 0.018 MB of 0.018 MB uploaded (0.000 MB deduped)wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:               epoch ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:            lr-AdamW ███████▇▇▇▇▇▇▆▆▆▆▅▅▅▄▄▄▄▃▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁
+wandb:          train_loss █▂▂▂▂▂▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: trainer/global_step ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:            val_loss █▄▃▂▃▂▂▂▂▂▁▂▂▂▁▂▂▂▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:           val_score ▁▂▃▄▃▄▄▄▅▇▇█████▇███████████████████████
+wandb: 
+wandb: Run summary:
+wandb:               epoch 79
+wandb:            lr-AdamW 0.0
+wandb:          train_loss 0.15363
+wandb: trainer/global_step 4719
+wandb:            val_loss 0.02443
+wandb:           val_score 0.73027
+wandb: 
+wandb: 🚀 View run duration_5760_downsample_2_unet_batch_size_64 at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/ev0fadt2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231107_123631-ev0fadt2/logs
+python: can't open file '/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/train.py': [Errno 2] No such file or directory
+Global seed set to 42
+[2023-11-07 15:31:22,053][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231107_153123-marq7bsh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_8192_downsample_2_unet_batch_size_32_augs
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/marq7bsh
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 44.7 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ Unet              │ 24.4 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 20.3 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 44.7 M                                                        
+Non-trainable params: 0                                                         
+Total params: 44.7 M                                                            
+Total estimated model params size (MB): 178                                     
+Epoch 0, global step 59: 'val_loss' reached 0.18558 (best 0.18558), saving model to './child-mind-institute-detect-sleep-states/marq7bsh/checkpoints/epoch=0-step=59.ckpt' as top 1
+Saved best model inf -> 0.18528589393411363
+Epoch 1, global step 118: 'val_loss' reached 0.10955 (best 0.10955), saving model to './child-mind-institute-detect-sleep-states/marq7bsh/checkpoints/epoch=1-step=118.ckpt' as top 1
+Saved best model 0.18528589393411363 -> 0.10941488721540996
+Epoch 2, global step 177: 'val_loss' reached 0.07745 (best 0.07745), saving model to './child-mind-institute-detect-sleep-states/marq7bsh/checkpoints/epoch=2-step=177.ckpt' as top 1
+Saved best model 0.10941488721540996 -> 0.077433173677751
+Epoch 3, global step 236: 'val_loss' was not in top 1
+Epoch 4, global step 295: 'val_loss' reached 0.07595 (best 0.07595), saving model to './child-mind-institute-detect-sleep-states/marq7bsh/checkpoints/epoch=4-step=295.ckpt' as top 1
+Saved best model 0.077433173677751 -> 0.07582811013396297
+Epoch 5, global step 354: 'val_loss' reached 0.05795 (best 0.05795), saving model to './child-mind-institute-detect-sleep-states/marq7bsh/checkpoints/epoch=5-step=354.ckpt' as top 1
+Saved best model 0.07582811013396297 -> 0.05796140991151333
+Epoch 6, global step 413: 'val_loss' reached 0.04248 (best 0.04248), saving model to './child-mind-institute-detect-sleep-states/marq7bsh/checkpoints/epoch=6-step=413.ckpt' as top 1
+Saved best model 0.05796140991151333 -> 0.04252510644229395
+Epoch 7, global step 472: 'val_loss' was not in top 1
+Epoch 8, global step 531: 'val_loss' was not in top 1
+Epoch 9, global step 590: 'val_loss' was not in top 1
+Epoch 10, global step 649: 'val_loss' was not in top 1
+Epoch 11, global step 708: 'val_loss' was not in top 1
+Epoch 12, global step 767: 'val_loss' reached 0.04147 (best 0.04147), saving model to './child-mind-institute-detect-sleep-states/marq7bsh/checkpoints/epoch=12-step=767.ckpt' as top 1
+Saved best model 0.04252510644229395 -> 0.04149735326479588
+Epoch 13, global step 826: 'val_loss' reached 0.03223 (best 0.03223), saving model to './child-mind-institute-detect-sleep-states/marq7bsh/checkpoints/epoch=13-step=826.ckpt' as top 1
+Saved best model 0.04149735326479588 -> 0.03226987724857671
+Epoch 14, global step 885: 'val_loss' was not in top 1
+Epoch 15, global step 944: 'val_loss' was not in top 1
+Epoch 16, global step 1003: 'val_loss' was not in top 1
+Epoch 17, global step 1062: 'val_loss' was not in top 1
+Epoch 18, global step 1121: 'val_loss' was not in top 1
+Epoch 19, global step 1180: 'val_loss' was not in top 1
+Epoch 20, global step 1239: 'val_loss' was not in top 1
+Epoch 21, global step 1298: 'val_loss' was not in top 1
+Epoch 22, global step 1357: 'val_loss' reached 0.03012 (best 0.03012), saving model to './child-mind-institute-detect-sleep-states/marq7bsh/checkpoints/epoch=22-step=1357.ckpt' as top 1
+Saved best model 0.03226987724857671 -> 0.030149294046818147
+Epoch 23, global step 1416: 'val_loss' was not in top 1
+Epoch 24, global step 1475: 'val_loss' was not in top 1
+Epoch 25, global step 1534: 'val_loss' was not in top 1
+Epoch 26, global step 1593: 'val_loss' was not in top 1
+Epoch 27, global step 1652: 'val_loss' was not in top 1
+Epoch 28, global step 1711: 'val_loss' was not in top 1
+Epoch 29, global step 1770: 'val_loss' was not in top 1
+Epoch 30, global step 1829: 'val_loss' was not in top 1
+Epoch 31, global step 1888: 'val_loss' was not in top 1
+Epoch 32, global step 1947: 'val_loss' was not in top 1
+Epoch 33, global step 2006: 'val_loss' was not in top 1
+Epoch 34, global step 2065: 'val_loss' was not in top 1
+Epoch 35, global step 2124: 'val_loss' reached 0.02885 (best 0.02885), saving model to './child-mind-institute-detect-sleep-states/marq7bsh/checkpoints/epoch=35-step=2124.ckpt' as top 1
+Saved best model 0.030149294046818147 -> 0.02885722669972373
+Epoch 36, global step 2183: 'val_loss' was not in top 1
+Epoch 37, global step 2242: 'val_loss' was not in top 1
+Epoch 38, global step 2301: 'val_loss' was not in top 1
+Epoch 39, global step 2360: 'val_loss' was not in top 1
+Epoch 40, global step 2419: 'val_loss' was not in top 1
+Epoch 41, global step 2478: 'val_loss' was not in top 1
+Epoch 42, global step 2537: 'val_loss' was not in top 1
+Epoch 43, global step 2596: 'val_loss' was not in top 1
+Epoch 44, global step 2655: 'val_loss' was not in top 1
+Epoch 45, global step 2714: 'val_loss' was not in top 1
+Epoch 46, global step 2773: 'val_loss' was not in top 1
+Epoch 47, global step 2832: 'val_loss' was not in top 1
+Epoch 48, global step 2891: 'val_loss' was not in top 1
+Epoch 49, global step 2950: 'val_loss' was not in top 1
+Epoch 50, global step 3009: 'val_loss' was not in top 1
+Epoch 51, global step 3068: 'val_loss' was not in top 1
+Epoch 52, global step 3127: 'val_loss' was not in top 1
+Epoch 53, global step 3186: 'val_loss' was not in top 1
+Epoch 54, global step 3245: 'val_loss' was not in top 1
+Epoch 55, global step 3304: 'val_loss' was not in top 1
+Epoch 56, global step 3363: 'val_loss' was not in top 1
+Epoch 57, global step 3422: 'val_loss' was not in top 1
+Epoch 58, global step 3481: 'val_loss' was not in top 1
+Epoch 59, global step 3540: 'val_loss' was not in top 1
+Epoch 60, global step 3599: 'val_loss' was not in top 1
+Epoch 61, global step 3658: 'val_loss' was not in top 1
+Epoch 62, global step 3717: 'val_loss' was not in top 1
+Epoch 63, global step 3776: 'val_loss' was not in top 1
+Epoch 64, global step 3835: 'val_loss' was not in top 1
+Epoch 65, global step 3894: 'val_loss' was not in top 1
+Epoch 66, global step 3953: 'val_loss' was not in top 1
+Epoch 67, global step 4012: 'val_loss' was not in top 1
+Epoch 68, global step 4071: 'val_loss' was not in top 1
+Epoch 69, global step 4130: 'val_loss' was not in top 1
+Epoch 70, global step 4189: 'val_loss' reached 0.02359 (best 0.02359), saving model to './child-mind-institute-detect-sleep-states/marq7bsh/checkpoints/epoch=70-step=4189.ckpt' as top 1
+Saved best model 0.02885722669972373 -> 0.023585317905859222
+Epoch 71, global step 4248: 'val_loss' was not in top 1
+Epoch 72, global step 4307: 'val_loss' was not in top 1
+Epoch 73, global step 4366: 'val_loss' was not in top 1
+Epoch 74, global step 4425: 'val_loss' was not in top 1
+Epoch 75, global step 4484: 'val_loss' was not in top 1
+Epoch 76, global step 4543: 'val_loss' was not in top 1
+Epoch 77, global step 4602: 'val_loss' was not in top 1
+Epoch 78, global step 4661: 'val_loss' was not in top 1
+Epoch 79, global step 4720: 'val_loss' was not in top 1
+`Trainer.fit` stopped: `max_steps=4720` reached.
+Epoch 79/79 ━━━━━━━━━━━━━━━━━ 59/59 0:00:42 • 0:00:00 1.52it/s v_num: 7bsh      
+                                                               val_loss: 0.037  
+                                                               val_score: 0.721 
+                                                               train_loss: 0.175
+[2023-11-07 16:38:50,449][train.py][INFO] - Extracting and saving best weights: model_weights.pth
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:               epoch ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:            lr-AdamW ███████▇▇▇▇▇▇▆▆▆▆▅▅▅▄▄▄▄▃▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁
+wandb:          train_loss █▃▂▂▂▂▂▂▂▂▂▁▁▁▁▂▁▁▁▁▁▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▂▁▁▁
+wandb: trainer/global_step ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:            val_loss █▃▃▂▃▂▂▂▂▂▂▁▁▂▁▁▂▁▂▂▁▂▁▂▁▂▁▂▂▂▁▁▁▂▂▁▂▂▁▂
+wandb:           val_score ▁▁▁▂▃▃▃▄▄▄▄▅▇▇▇▇▇█▇██▇██████████████████
+wandb: 
+wandb: Run summary:
+wandb:               epoch 79
+wandb:            lr-AdamW 0.0
+wandb:          train_loss 0.17498
+wandb: trainer/global_step 4719
+wandb:            val_loss 0.0372
+wandb:           val_score 0.72096
+wandb: 
+wandb: 🚀 View run duration_8192_downsample_2_unet_batch_size_32_augs at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/marq7bsh
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231107_153123-marq7bsh/logs
+Global seed set to 42
+[2023-11-08 12:55:04,289][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_125505-e7uvgi8v
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet_batch_size_64_all_data
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/e7uvgi8v
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 41.9 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ Unet              │ 24.4 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 41.9 M                                                        
+Non-trainable params: 0                                                         
+Total params: 41.9 M                                                            
+Total estimated model params size (MB): 167                                     
+Epoch 0, global step 74: 'val_loss' reached 0.12283 (best 0.12283), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=0-step=74.ckpt' as top 1
+Saved best model inf -> 0.12238774232958492
+Epoch 1, global step 148: 'val_loss' reached 0.10818 (best 0.10818), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=1-step=148.ckpt' as top 1
+Saved best model 0.12238774232958492 -> 0.10775981720929083
+Epoch 2, global step 222: 'val_loss' reached 0.09834 (best 0.09834), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=2-step=222.ckpt' as top 1
+Saved best model 0.10775981720929083 -> 0.0981171737964216
+Epoch 3, global step 296: 'val_loss' reached 0.08873 (best 0.08873), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=3-step=296.ckpt' as top 1
+Saved best model 0.0981171737964216 -> 0.0886429674727352
+Epoch 4, global step 370: 'val_loss' reached 0.07510 (best 0.07510), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=4-step=370.ckpt' as top 1
+Saved best model 0.0886429674727352 -> 0.07501164117926046
+Epoch 5, global step 444: 'val_loss' reached 0.06488 (best 0.06488), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=5-step=444.ckpt' as top 1
+Saved best model 0.07501164117926046 -> 0.06470567360520363
+Epoch 6, global step 518: 'val_loss' was not in top 1
+Epoch 7, global step 592: 'val_loss' was not in top 1
+Epoch 8, global step 666: 'val_loss' was not in top 1
+Epoch 9, global step 740: 'val_loss' was not in top 1
+Epoch 10, global step 814: 'val_loss' reached 0.05026 (best 0.05026), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=10-step=814.ckpt' as top 1
+Saved best model 0.06470567360520363 -> 0.05018130707015332
+Epoch 11, global step 888: 'val_loss' was not in top 1
+Epoch 12, global step 962: 'val_loss' reached 0.04478 (best 0.04478), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=12-step=962.ckpt' as top 1
+Saved best model 0.05018130707015332 -> 0.04473131402444683
+Epoch 13, global step 1036: 'val_loss' reached 0.04475 (best 0.04475), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=13-step=1036.ckpt' as top 1
+Saved best model 0.04473131402444683 -> 0.04466894962579796
+Epoch 14, global step 1110: 'val_loss' was not in top 1
+Epoch 15, global step 1184: 'val_loss' was not in top 1
+Epoch 16, global step 1258: 'val_loss' was not in top 1
+Epoch 17, global step 1332: 'val_loss' was not in top 1
+Epoch 18, global step 1406: 'val_loss' was not in top 1
+Epoch 19, global step 1480: 'val_loss' reached 0.03949 (best 0.03949), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=19-step=1480.ckpt' as top 1
+Saved best model 0.04466894962579796 -> 0.0394223118445983
+Epoch 20, global step 1554: 'val_loss' was not in top 1
+Epoch 21, global step 1628: 'val_loss' was not in top 1
+Epoch 22, global step 1702: 'val_loss' was not in top 1
+Epoch 23, global step 1776: 'val_loss' reached 0.03476 (best 0.03476), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=23-step=1776.ckpt' as top 1
+Saved best model 0.0394223118445983 -> 0.034742542787602075
+Epoch 24, global step 1850: 'val_loss' was not in top 1
+Epoch 25, global step 1924: 'val_loss' was not in top 1
+Epoch 26, global step 1998: 'val_loss' was not in top 1
+Epoch 27, global step 2072: 'val_loss' reached 0.03190 (best 0.03190), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=27-step=2072.ckpt' as top 1
+Saved best model 0.034742542787602075 -> 0.031848786074030945
+Epoch 28, global step 2146: 'val_loss' was not in top 1
+Epoch 29, global step 2220: 'val_loss' was not in top 1
+Epoch 30, global step 2294: 'val_loss' was not in top 1
+Epoch 31, global step 2368: 'val_loss' reached 0.03164 (best 0.03164), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=31-step=2368.ckpt' as top 1
+Saved best model 0.031848786074030945 -> 0.0315618414713658
+Epoch 32, global step 2442: 'val_loss' was not in top 1
