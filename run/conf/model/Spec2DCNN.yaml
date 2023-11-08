@@ -1,4 +1,5 @@
 name: Spec2DCNN
-model: 'DeepLabV3'
-encoder_name: resnext50_32x4d
+architecture: 'Unet' # Unet, Unet++, manet, pan, deeplab+
+encoder_name: resnet34
 encoder_weights: imagenet
+loss: "bce" # mse, bce, kld

@@ -693,3 +693,1106 @@ Epoch 30, global step 2294: 'val_loss' was not in top 1
 Epoch 31, global step 2368: 'val_loss' reached 0.03164 (best 0.03164), saving model to './child-mind-institute-detect-sleep-states/e7uvgi8v/checkpoints/epoch=31-step=2368.ckpt' as top 1
 Saved best model 0.031848786074030945 -> 0.0315618414713658
 Epoch 32, global step 2442: 'val_loss' was not in top 1
+python: can't open file '/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/train.py': [Errno 2] No such file or directory
+Global seed set to 42
+[2023-11-08 20:23:27,894][train.py][INFO] - Set Up DataModule
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/run/train.py", line 32, in main
+    model = SegModel(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/modelmodule/seg.py", line 31, in __init__
+    self.model = get_model(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/models/common.py", line 131, in get_model
+    encoder = get_encoder(cfg, feature_extractor.out_chans)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/models/common.py", line 121, in get_encoder
+    return smp.model.PAN(cfg.model.encoder_name, cfg.model.encoder_weights, in_channels=in_channels, classes=1)
+AttributeError: module 'segmentation_models_pytorch' has no attribute 'model'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Global seed set to 42
+[2023-11-08 20:23:54,514][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_202355-28b66l53
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_pan
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/28b66l53
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 39.0 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ PAN               │ 21.5 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 39.0 M                                                        
+Non-trainable params: 0                                                         
+Total params: 39.0 M                                                            
+Total estimated model params size (MB): 155                                     
+Epoch 0/79                                    0/119 0:00:03 • -:--:-- 0.00it/s 
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/run/train.py", line 75, in main
+    trainer.fit(model, datamodule=datamodule)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 532, in fit
+    call._call_and_handle_interrupt(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 43, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 571, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 980, in _run
+    results = self._run_stage()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1023, in _run_stage
+    self.fit_loop.run()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/fit_loop.py", line 202, in run
+    self.advance()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/fit_loop.py", line 355, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 133, in run
+    self.advance(data_fetcher)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 219, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 188, in run
+    self._optimizer_step(kwargs.get("batch_idx", 0), closure)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 266, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 146, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/core/module.py", line 1276, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/core/optimizer.py", line 161, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 231, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/plugins/precision/amp.py", line 76, in optimizer_step
+    closure_result = closure()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 142, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 128, in closure
+    step_output = self._step_fn()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 315, in _training_step
+    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 294, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 380, in training_step
+    return self.model.training_step(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/modelmodule/seg.py", line 47, in training_step
+    return self.__share_step(batch, "train")
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/modelmodule/seg.py", line 60, in __share_step
+    output = self.model(batch["feature"], batch["label"], do_mixup, do_cutmix)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/models/spec2Dcnn.py", line 49, in forward
+    x = self.encoder(x).squeeze(1)  # (batch_size, height, n_timesteps)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/base/model.py", line 30, in forward
+    decoder_output = self.decoder(*features)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/decoders/pan/decoder.py", line 181, in forward
+    x5 = self.fpa(bottleneck)  # 1/32
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/decoders/pan/decoder.py", line 109, in forward
+    x3 = self.down3(x2)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/pooling.py", line 166, in forward
+    return F.max_pool2d(input, self.kernel_size, self.stride,
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/_jit_internal.py", line 488, in fn
+    return if_false(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/functional.py", line 791, in _max_pool2d
+    return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+RuntimeError: Given input size: (1x1x45). Calculated output size: (1x0x22). Output size is too small
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:            lr-AdamW ▁
+wandb: trainer/global_step ▁
+wandb: 
+wandb: Run summary:
+wandb:            lr-AdamW 0.0005
+wandb: trainer/global_step 0
+wandb: 
+wandb: 🚀 View run duration_5760_downsample_2_pan at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/28b66l53
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231108_202355-28b66l53/logs
+Global seed set to 42
+[2023-11-08 20:26:09,982][train.py][INFO] - Set Up DataModule
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/run/train.py", line 32, in main
+    model = SegModel(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/modelmodule/seg.py", line 31, in __init__
+    self.model = get_model(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/models/common.py", line 131, in get_model
+    encoder = get_encoder(cfg, feature_extractor.out_chans)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/models/common.py", line 117, in get_encoder
+    return smp.UnetPlusPlus(cfg.model.encoder_name, cfg.model.encoder_weights, in_channels=in_channels, classes=1)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/decoders/unetplusplus/model.py", line 82, in __init__
+    encoder_channels=self.encoder.out_channels,
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/encoders/_base.py", line 20, in out_channels
+    return self._out_channels[: self._depth + 1]
+TypeError: can only concatenate str (not "int") to str
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Global seed set to 42
+[2023-11-08 20:31:03,551][train.py][INFO] - Set Up DataModule
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_pan', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'Unet++', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7'], 'valid_series_ids': ['03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/run/train.py", line 32, in main
+    model = SegModel(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/modelmodule/seg.py", line 31, in __init__
+    self.model = get_model(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/models/common.py", line 133, in get_model
+    encoder = get_encoder(cfg, feature_extractor.out_chans)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/models/common.py", line 119, in get_encoder
+    return smp.UnetPlusPlus(cfg.model.encoder_name, cfg.model.encoder_weights, in_channels=in_channels, classes=1)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/decoders/unetplusplus/model.py", line 82, in __init__
+    encoder_channels=self.encoder.out_channels,
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/encoders/_base.py", line 20, in out_channels
+    return self._out_channels[: self._depth + 1]
+TypeError: can only concatenate str (not "int") to str
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Global seed set to 42
+[2023-11-08 20:32:13,657][train.py][INFO] - Set Up DataModule
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_pan', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'Unet', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7'], 'valid_series_ids': ['03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/run/train.py", line 32, in main
+    model = SegModel(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/modelmodule/seg.py", line 31, in __init__
+    self.model = get_model(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/models/common.py", line 133, in get_model
+    encoder = get_encoder(cfg, feature_extractor.out_chans)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/models/common.py", line 117, in get_encoder
+    return smp.Unet(cfg.model.encoder_name, cfg.model.encoder_weights, in_channels=in_channels, classes=1)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/decoders/unet/model.py", line 79, in __init__
+    encoder_channels=self.encoder.out_channels,
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/encoders/_base.py", line 20, in out_channels
+    return self._out_channels[: self._depth + 1]
+TypeError: can only concatenate str (not "int") to str
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Global seed set to 42
+[2023-11-08 20:33:56,272][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_203357-qa23437p
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_pan
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/qa23437p
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_pan', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'pan', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7'], 'valid_series_ids': ['03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 39.0 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ PAN               │ 21.5 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 39.0 M                                                        
+Non-trainable params: 0                                                         
+Total params: 39.0 M                                                            
+Total estimated model params size (MB): 155                                     
+Epoch 0/79                                    0/119 0:00:03 • -:--:-- 0.00it/s 
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/run/train.py", line 75, in main
+    trainer.fit(model, datamodule=datamodule)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 532, in fit
+    call._call_and_handle_interrupt(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 43, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 571, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 980, in _run
+    results = self._run_stage()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1023, in _run_stage
+    self.fit_loop.run()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/fit_loop.py", line 202, in run
+    self.advance()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/fit_loop.py", line 355, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 133, in run
+    self.advance(data_fetcher)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 219, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 188, in run
+    self._optimizer_step(kwargs.get("batch_idx", 0), closure)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 266, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 146, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/core/module.py", line 1276, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/core/optimizer.py", line 161, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 231, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/plugins/precision/amp.py", line 76, in optimizer_step
+    closure_result = closure()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 142, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 128, in closure
+    step_output = self._step_fn()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 315, in _training_step
+    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 294, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 380, in training_step
+    return self.model.training_step(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/modelmodule/seg.py", line 47, in training_step
+    return self.__share_step(batch, "train")
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/modelmodule/seg.py", line 60, in __share_step
+    output = self.model(batch["feature"], batch["label"], do_mixup, do_cutmix)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/src/models/spec2Dcnn.py", line 49, in forward
+    x = self.encoder(x).squeeze(1)  # (batch_size, height, n_timesteps)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/base/model.py", line 30, in forward
+    decoder_output = self.decoder(*features)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/decoders/pan/decoder.py", line 181, in forward
+    x5 = self.fpa(bottleneck)  # 1/32
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/segmentation_models_pytorch/decoders/pan/decoder.py", line 109, in forward
+    x3 = self.down3(x2)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/modules/pooling.py", line 166, in forward
+    return F.max_pool2d(input, self.kernel_size, self.stride,
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/_jit_internal.py", line 488, in fn
+    return if_false(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/torch/nn/functional.py", line 791, in _max_pool2d
+    return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+RuntimeError: Given input size: (1x1x45). Calculated output size: (1x0x22). Output size is too small
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:            lr-AdamW ▁
+wandb: trainer/global_step ▁
+wandb: 
+wandb: Run summary:
+wandb:            lr-AdamW 0.0005
+wandb: trainer/global_step 0
+wandb: 
+wandb: 🚀 View run duration_5760_downsample_2_pan at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/qa23437p
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231108_203357-qa23437p/logs
+Global seed set to 42
+[2023-11-08 20:34:39,953][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_203441-yvwwy6h0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/yvwwy6h0
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_unet', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'Unet', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7'], 'valid_series_ids': ['03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 41.9 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ Unet              │ 24.4 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 41.9 M                                                        
+Non-trainable params: 0                                                         
+Total params: 41.9 M                                                            
+Total estimated model params size (MB): 167                                     
+Epoch 0, global step 119: 'val_loss' reached 0.05295 (best 0.05295), saving model to './child-mind-institute-detect-sleep-states/yvwwy6h0/checkpoints/epoch=0-step=119.ckpt' as top 1
+Saved best model inf -> 0.052896184075796444
+Epoch 1, global step 238: 'val_loss' was not in top 1
+[rank: 0] Received SIGTERM: 15
+Epoch 2/79 ━━━━━━━━━━━━━━━━ 119/119 0:00:28 •        4.54it/s  v_num: y6h0      
+                                    0:00:00                    val_loss: 0.056  
+                                                               val_score: 0.195 
+                                                               train_loss: 0.175
+Validation                  4/151   0:00:00 •        15.71it/s                  
+                                    0:00:10                                     
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:               epoch ▁▁██
+wandb:            lr-AdamW █▆▁
+wandb:          train_loss █▁
+wandb: trainer/global_step ▁▄▄▅███
+wandb:            val_loss ▁█
+wandb:           val_score ▁█
+wandb: 
+wandb: Run summary:
+wandb:               epoch 1
+wandb:            lr-AdamW 0.0005
+wandb:          train_loss 0.17482
+wandb: trainer/global_step 238
+wandb:            val_loss 0.0559
+wandb:           val_score 0.19455
+wandb: 
+wandb: 🚀 View run duration_5760_downsample_2_unet at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/yvwwy6h0
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231108_203441-yvwwy6h0/logs
+Global seed set to 42
+[2023-11-08 20:39:33,983][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_203935-7tmmfiof
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/7tmmfiof
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_unet', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'manet', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7'], 'valid_series_ids': ['03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 49.3 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ MAnet             │ 31.8 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 49.3 M                                                        
+Non-trainable params: 0                                                         
+Total params: 49.3 M                                                            
+Total estimated model params size (MB): 197                                     
+Epoch 0, global step 119: 'val_loss' reached 0.05853 (best 0.05853), saving model to './child-mind-institute-detect-sleep-states/7tmmfiof/checkpoints/epoch=0-step=119.ckpt' as top 1
+Saved best model inf -> 0.05847789128218463
+[rank: 0] Received SIGTERM: 15
+Epoch 1/79 ━━━━━━━━━━━━━━━━ 119/119 0:00:30 •        4.26it/s  v_num: fiof      
+                                    0:00:00                    val_loss: 0.059  
+                                                               val_score: 0.024 
+                                                               train_loss: 0.245
+Validation ━━━━             41/151  0:00:02 •        14.65it/s                  
+                                    0:00:08                                     
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:               epoch ▁▁
+wandb:            lr-AdamW █▁
+wandb:          train_loss ▁
+wandb: trainer/global_step ▁███
+wandb:            val_loss ▁
+wandb:           val_score ▁
+wandb: 
+wandb: Run summary:
+wandb:               epoch 0
+wandb:            lr-AdamW 0.0005
+wandb:          train_loss 0.24477
+wandb: trainer/global_step 119
+wandb:            val_loss 0.05853
+wandb:           val_score 0.02364
+wandb: 
+wandb: 🚀 View run duration_5760_downsample_2_unet at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/7tmmfiof
+wandb: Synced 1 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+Traceback (most recent call last):
+  File "/home/psemchyshyn/.rye/py/cpython@3.10.11/install/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/psemchyshyn/.rye/py/cpython@3.10.11/install/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/__main__.py", line 3, in <module>
+    cli.cli(prog_name="python -m wandb")
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/cli/cli.py", line 102, in wrapper
+    return func(*args, **kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/cli/cli.py", line 279, in service
+    server.serve()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/service/server.py", line 118, in serve
+    mux.loop()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/service/streams.py", line 427, in loop
+    raise e
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/service/streams.py", line 425, in loop
+    self._loop()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/service/streams.py", line 418, in _loop
+    self._process_action(action)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/service/streams.py", line 395, in _process_action
+    self._process_teardown(action)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/service/streams.py", line 373, in _process_teardown
+    self._finish_all(streams_copy, exit_code)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/service/streams.py", line 352, in _finish_all
+    Run._footer(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 3350, in _footer
+    Run._footer_log_dir_info(quiet=quiet, settings=settings, printer=printer)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 3578, in _footer_log_dir_info
+    log_dir = os.path.dirname(log_dir.replace(os.getcwd(), "."))
+FileNotFoundError: [Errno 2] No such file or directory
+Global seed set to 42
+[2023-11-08 20:41:27,808][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_204129-27sr96ec
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_manet
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/27sr96ec
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_manet', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'manet', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7'], 'valid_series_ids': ['03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 49.3 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ MAnet             │ 31.8 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 49.3 M                                                        
+Non-trainable params: 0                                                         
+Total params: 49.3 M                                                            
+Total estimated model params size (MB): 197                                     
+Epoch 0, global step 119: 'val_loss' reached 0.05853 (best 0.05853), saving model to './child-mind-institute-detect-sleep-states/27sr96ec/checkpoints/epoch=0-step=119.ckpt' as top 1
+Saved best model inf -> 0.05847789128218463
+Epoch 1, global step 238: 'val_loss' reached 0.04268 (best 0.04268), saving model to './child-mind-institute-detect-sleep-states/27sr96ec/checkpoints/epoch=1-step=238.ckpt' as top 1
+Saved best model 0.05847789128218463 -> 0.042656935973475314
+Epoch 2, global step 357: 'val_loss' was not in top 1
+Epoch 3, global step 476: 'val_loss' was not in top 1
+Epoch 4, global step 595: 'val_loss' was not in top 1
+Epoch 5, global step 714: 'val_loss' was not in top 1
+[rank: 0] Received SIGTERM: 15
+Epoch 6/79 ━━━━━━━━━━━━━━━━ 119/119 0:00:30 •        4.25it/s  v_num: 96ec      
+                                    0:00:00                    val_loss: nan    
+                                                               val_score: 0.0   
+                                                               train_loss: 0.17 
+Validation ━━━━╸            45/151  0:00:03 •        14.59it/s                  
+                                    0:00:08                                     
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:               epoch ▁▁▂▂▄▄▅▅▇▇██
+wandb:            lr-AdamW ██▇▆▅▃▁
+wandb:          train_loss █▂ ▂▁▁
+wandb: trainer/global_step ▁▂▂▂▃▃▃▄▄▅▆▆▆▇▇▇███
+wandb:            val_loss █▁    
+wandb:           val_score ▂█▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:               epoch 5
+wandb:            lr-AdamW 0.00049
+wandb:          train_loss 0.16955
+wandb: trainer/global_step 714
+wandb:            val_loss nan
+wandb:           val_score 0.0
+wandb: 
+wandb: 🚀 View run duration_5760_downsample_2_manet at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/27sr96ec
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231108_204129-27sr96ec/logs
+Global seed set to 42
+[2023-11-08 20:47:13,463][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_204714-1cdn0l8r
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/1cdn0l8r
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_unet', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'Unet', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7'], 'valid_series_ids': ['03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 41.9 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ Unet              │ 24.4 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 41.9 M                                                        
+Non-trainable params: 0                                                         
+Total params: 41.9 M                                                            
+Total estimated model params size (MB): 167                                     
+Epoch 0, global step 119: 'val_loss' reached 0.05295 (best 0.05295), saving model to './child-mind-institute-detect-sleep-states/1cdn0l8r/checkpoints/epoch=0-step=119.ckpt' as top 1
+Saved best model inf -> 0.052896184075796444
+Epoch 1, global step 238: 'val_loss' was not in top 1
+Epoch 2, global step 357: 'val_loss' reached 0.04231 (best 0.04231), saving model to './child-mind-institute-detect-sleep-states/1cdn0l8r/checkpoints/epoch=2-step=357.ckpt' as top 1
+Saved best model 0.052896184075796444 -> 0.042274823877960443
+Epoch 3, global step 476: 'val_loss' reached 0.03972 (best 0.03972), saving model to './child-mind-institute-detect-sleep-states/1cdn0l8r/checkpoints/epoch=3-step=476.ckpt' as top 1
+Saved best model 0.042274823877960443 -> 0.03971988273729009
+Epoch 4, global step 595: 'val_loss' reached 0.03123 (best 0.03123), saving model to './child-mind-institute-detect-sleep-states/1cdn0l8r/checkpoints/epoch=4-step=595.ckpt' as top 1
+Saved best model 0.03971988273729009 -> 0.031233797141270624
+Epoch 5, global step 714: 'val_loss' was not in top 1
+Epoch 6, global step 833: 'val_loss' was not in top 1
+Epoch 7, global step 952: 'val_loss' was not in top 1
+Epoch 8, global step 1071: 'val_loss' was not in top 1
+Epoch 9, global step 1190: 'val_loss' reached 0.03100 (best 0.03100), saving model to './child-mind-institute-detect-sleep-states/1cdn0l8r/checkpoints/epoch=9-step=1190.ckpt' as top 1
+Saved best model 0.031233797141270624 -> 0.031002178967048395
+Epoch 10, global step 1309: 'val_loss' reached 0.02884 (best 0.02884), saving model to './child-mind-institute-detect-sleep-states/1cdn0l8r/checkpoints/epoch=10-step=1309.ckpt' as top 1
+Saved best model 0.031002178967048395 -> 0.028825988552058177
+Global seed set to 42
+[2023-11-08 20:55:33,184][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_205534-1uwjejem
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet_train_series_250
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/1uwjejem
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_unet_train_series_250', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'Unet', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7', '03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769'], 'valid_series_ids': ['89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 41.9 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ Unet              │ 24.4 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 41.9 M                                                        
+Non-trainable params: 0                                                         
+Total params: 41.9 M                                                            
+Total estimated model params size (MB): 167                                     
+Epoch 11, global step 1428: 'val_loss' was not in top 1
+Epoch 0, global step 134: 'val_loss' reached 0.05664 (best 0.05664), saving model to './child-mind-institute-detect-sleep-states/1uwjejem/checkpoints/epoch=0-step=134.ckpt' as top 1
+Epoch 12, global step 1547: 'val_loss' was not in top 1
+Saved best model inf -> 0.05656912796718033
+Epoch 13, global step 1666: 'val_loss' was not in top 1
+Epoch 1, global step 268: 'val_loss' reached 0.04368 (best 0.04368), saving model to './child-mind-institute-detect-sleep-states/1uwjejem/checkpoints/epoch=1-step=268.ckpt' as top 1
+Saved best model 0.05656912796718033 -> 0.043633917423224526
+Global seed set to 42
+[2023-11-08 20:59:23,935][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_205925-6jk8ydx6
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet_train_series_280
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/6jk8ydx6
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_unet_train_series_280', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'Unet', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7', '03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2'], 'valid_series_ids': ['03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type              ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN         │ 41.9 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram    │ 13.0 K │
+│ 2 │ model.encoder           │ Unet              │ 24.4 M │
+│ 3 │ model.decoder           │ UNet1DDecoder     │ 17.5 M │
+│ 4 │ model.loss_fn           │ BCEWithLogitsLoss │      0 │
+└───┴─────────────────────────┴───────────────────┴────────┘
+Trainable params: 41.9 M                                                        
+Non-trainable params: 0                                                         
+Total params: 41.9 M                                                            
+Total estimated model params size (MB): 167                                     
+Epoch 14, global step 1785: 'val_loss' was not in top 1
+Epoch 2, global step 402: 'val_loss' reached 0.03923 (best 0.03923), saving model to './child-mind-institute-detect-sleep-states/1uwjejem/checkpoints/epoch=2-step=402.ckpt' as top 1
+Saved best model 0.043633917423224526 -> 0.039254269244361525
+Epoch 15, global step 1904: 'val_loss' was not in top 1
+Epoch 3, global step 536: 'val_loss' reached 0.03042 (best 0.03042), saving model to './child-mind-institute-detect-sleep-states/1uwjejem/checkpoints/epoch=3-step=536.ckpt' as top 1
+Saved best model 0.039254269244361525 -> 0.030405007803789044
+Epoch 0, global step 149: 'val_loss' reached 0.05103 (best 0.05103), saving model to './child-mind-institute-detect-sleep-states/6jk8ydx6/checkpoints/epoch=0-step=149.ckpt' as top 1
+Saved best model inf -> 0.05098961388679924
+Epoch 16, global step 2023: 'val_loss' was not in top 1
+Epoch 4, global step 670: 'val_loss' was not in top 1
+Epoch 1, global step 298: 'val_loss' reached 0.03771 (best 0.03771), saving model to './child-mind-institute-detect-sleep-states/6jk8ydx6/checkpoints/epoch=1-step=298.ckpt' as top 1
+Saved best model 0.05098961388679924 -> 0.037756907374332876
+Epoch 17, global step 2142: 'val_loss' reached 0.02855 (best 0.02855), saving model to './child-mind-institute-detect-sleep-states/1cdn0l8r/checkpoints/epoch=17-step=2142.ckpt' as top 1
+Saved best model 0.028825988552058177 -> 0.028537365072869407
+Epoch 5, global step 804: 'val_loss' was not in top 1
+Epoch 2, global step 447: 'val_loss' was not in top 1
+Epoch 18, global step 2261: 'val_loss' was not in top 1
+Epoch 6, global step 938: 'val_loss' was not in top 1
+Epoch 3, global step 596: 'val_loss' reached 0.02891 (best 0.02891), saving model to './child-mind-institute-detect-sleep-states/6jk8ydx6/checkpoints/epoch=3-step=596.ckpt' as top 1
+Saved best model 0.037756907374332876 -> 0.02893671119548627
+Epoch 19, global step 2380: 'val_loss' was not in top 1
+Epoch 7, global step 1072: 'val_loss' reached 0.02829 (best 0.02829), saving model to './child-mind-institute-detect-sleep-states/1uwjejem/checkpoints/epoch=7-step=1072.ckpt' as top 1
+Saved best model 0.030405007803789044 -> 0.028277577257632643
+Epoch 20, global step 2499: 'val_loss' was not in top 1
+Epoch 4, global step 745: 'val_loss' was not in top 1
+Epoch 8, global step 1206: 'val_loss' was not in top 1
+Epoch 21, global step 2618: 'val_loss' was not in top 1
+Epoch 9, global step 1340: 'val_loss' was not in top 1
+Epoch 5, global step 894: 'val_loss' was not in top 1
+Epoch 22, global step 2737: 'val_loss' was not in top 1
+Epoch 10, global step 1474: 'val_loss' was not in top 1
+Epoch 6, global step 1043: 'val_loss' was not in top 1
+Epoch 23, global step 2856: 'val_loss' was not in top 1
+Epoch 11, global step 1608: 'val_loss' was not in top 1
+Epoch 7, global step 1192: 'val_loss' was not in top 1
+Epoch 24, global step 2975: 'val_loss' reached 0.02698 (best 0.02698), saving model to './child-mind-institute-detect-sleep-states/1cdn0l8r/checkpoints/epoch=24-step=2975.ckpt' as top 1
+Saved best model 0.028537365072869407 -> 0.026997412591925916
+Epoch 12, global step 1742: 'val_loss' was not in top 1
+Epoch 8, global step 1341: 'val_loss' was not in top 1
+Epoch 25, global step 3094: 'val_loss' was not in top 1
+Epoch 13, global step 1876: 'val_loss' was not in top 1
+Epoch 26, global step 3213: 'val_loss' was not in top 1
+Epoch 9, global step 1490: 'val_loss' was not in top 1
+Epoch 14, global step 2010: 'val_loss' reached 0.02717 (best 0.02717), saving model to './child-mind-institute-detect-sleep-states/1uwjejem/checkpoints/epoch=14-step=2010.ckpt' as top 1
+Saved best model 0.028277577257632643 -> 0.027159464964053675
+Epoch 27, global step 3332: 'val_loss' reached 0.02605 (best 0.02605), saving model to './child-mind-institute-detect-sleep-states/1cdn0l8r/checkpoints/epoch=27-step=3332.ckpt' as top 1
+Saved best model 0.026997412591925916 -> 0.026057722379256115
+Epoch 15, global step 2144: 'val_loss' was not in top 1
+Epoch 10, global step 1639: 'val_loss' was not in top 1
+Epoch 28, global step 3451: 'val_loss' was not in top 1
+[rank: 0] Received SIGTERM: 15
+Epoch 29/79 ━                10/119 0:00:09 • 0:01:11 1.54it/s v_num: 0l8r      
+                                                               val_loss: 0.03   
+                                                               val_score: 0.727 
+                                                               train_loss: 0.163
+wandb: Waiting for W&B process to finish... (success).
+[rank: 0] Received SIGTERM: 15
+Epoch 16/79 ━━━━━━━━━━━━━━━━ 134/134 0:01:28 •        1.59it/s v_num: ejem      
+                                     0:00:00                   val_loss: 0.032  
+                                                               val_score: 0.716 
+                                                               train_loss: 0.162
+Validation  ━━━━━━━━━━╸      54/79   0:00:08 •        6.78it/s                  
+                                     0:00:04                                    
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:               epoch ▁▁▁▁▁▂▂▂▂▃▃▃▃▃▃▃▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:            lr-AdamW ████████▇▇▇▇▇▆▆▆▆▅▅▅▄▄▄▃▃▃▂▂▁▁
+wandb:          train_loss █▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: trainer/global_step ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇████
+wandb:            val_loss ▇█▅▄▂▃▃▂▂▂▂▂▂▂▃▂▂▂▂▂▂▂▂▂▁▂▂▁▂
+wandb:           val_score ▁▃▄▃▄▇▇▇▇▇███████████████████
+wandb: 
+wandb: Run summary:
+wandb:               epoch 28
+wandb:            lr-AdamW 0.00035
+wandb:          train_loss 0.16306
+wandb: trainer/global_step 3451
+wandb:            val_loss 0.03003
+wandb:           val_score 0.72748
+wandb: 
+wandb: 🚀 View run duration_5760_downsample_2_unet at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/1cdn0l8r
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231108_204714-1cdn0l8r/logs
+wandb: - 0.004 MB of 0.004 MB uploaded (0.000 MB deduped)wandb: \ 0.013 MB of 0.013 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:               epoch ▁▁▁▁▂▂▂▂▃▃▃▃▄▄▄▄▅▅▅▅▆▆▆▆▇▇▇▇████
+wandb:            lr-AdamW █████▇▇▇▆▆▅▅▄▃▃▂▁
+wandb:          train_loss █▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁
+wandb: trainer/global_step ▁▁▁▁▂▂▂▂▂▃▃▃▃▄▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇█████
+wandb:            val_loss █▅▄▂▃▄▂▁▁▄▃▂▂▁▁▂
+wandb:           val_score ▁▃▃▄▄▄▇██▇██████
+wandb: 
+wandb: Run summary:
+wandb:               epoch 15
+wandb:            lr-AdamW 0.00045
+wandb:          train_loss 0.16185
+wandb: trainer/global_step 2144
+wandb:            val_loss 0.03226
+wandb:           val_score 0.71591
+wandb: 
+wandb: 🚀 View run duration_5760_downsample_2_unet_train_series_250 at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/1uwjejem
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231108_205534-1uwjejem/logs
+Exception in thread ChkStopThr:
+Traceback (most recent call last):
+  File "/home/psemchyshyn/.rye/py/cpython@3.10.11/install/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+Exception in thread IntMsgThr    :
+self.run()
+Traceback (most recent call last):
+  File "/home/psemchyshyn/.rye/py/cpython@3.10.11/install/lib/python3.10/threading.py", line 953, in run
+  File "/home/psemchyshyn/.rye/py/cpython@3.10.11/install/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self._target(*self._args, **self._kwargs)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 285, in check_stop_status
+    self._loop_check_status(
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 223, in _loop_check_status
+    local_handle = request()
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 727, in deliver_stop_status
+    self.run()
+  File "/home/psemchyshyn/.rye/py/cpython@3.10.11/install/lib/python3.10/threading.py", line 953, in run
+    return self._deliver_stop_status(status)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 459, in _deliver_stop_status
+    return self._deliver_record(record)
+    self._target(*self._args, **self._kwargs)  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 428, in _deliver_record
+
+      File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 299, in check_internal_messages
+handle = mailbox._deliver_record(record, interface=self)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    interface._publish(record)
+    self._loop_check_status(  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 223, in _loop_check_status
+    self._sock_client.send_record_publish(record)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    local_handle = request()
+    self.send_server_request(server_req)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 743, in deliver_internal_messages
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+        return self._deliver_internal_messages(internal_message)sent = self._sock.send(data)
+
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 481, in _deliver_internal_messages
+BrokenPipeError: [Errno 32] Broken pipe
+    return self._deliver_record(record)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 428, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    interface._publish(record)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+[rank: 0] Received SIGTERM: 15
+Epoch 11/79 ━━━━━━━━━━━━━━━━ 149/149 0:01:29 •       2.28it/s  v_num: ydx6      
+                                     0:00:00                   val_loss: 0.034  
+                                                               val_score: 0.657 
+                                                               train_loss: 0.165
+Validation  ━━╸              28/151  0:00:01 •       15.54it/s                  
+                                     0:00:08                                    
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.004 MB of 0.004 MB uploaded (0.000 MB deduped)wandb: \ 0.004 MB of 0.004 MB uploaded (0.000 MB deduped)wandb: | 0.012 MB of 0.012 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:               epoch ▁▁▂▂▂▂▃▃▄▄▅▅▅▅▆▆▇▇▇▇██
+wandb:            lr-AdamW ███▇▇▇▆▅▄▃▂▁
+wandb:          train_loss █▂▂▁▁▁▁▁▁▁▁
+wandb: trainer/global_step ▁▂▂▂▂▂▂▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▇▇▇▇▇▇███
+wandb:            val_loss █▄▅▁▅▂▁▂▃▁▂
+wandb:           val_score ▁▂▃▄▃▄▄▅███
+wandb: 
+wandb: Run summary:
+wandb:               epoch 10
+wandb:            lr-AdamW 0.00048
+wandb:          train_loss 0.16458
+wandb: trainer/global_step 1639
+wandb:            val_loss 0.03364
+wandb:           val_score 0.65655
+wandb: 
+wandb: 🚀 View run duration_5760_downsample_2_unet_train_series_280 at: https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/6jk8ydx6
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231108_205925-6jk8ydx6/logs
+Global seed set to 42
+[2023-11-08 21:27:50,013][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_212751-yhbhvdz9
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/yhbhvdz9
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_unet', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'Unet', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet', 'loss': 'bce'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7'], 'valid_series_ids': ['03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type           ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN      │ 41.9 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram │ 13.0 K │
+│ 2 │ model.encoder           │ Unet           │ 24.4 M │
+│ 3 │ model.decoder           │ UNet1DDecoder  │ 17.5 M │
+└───┴─────────────────────────┴────────────────┴────────┘
+Trainable params: 41.9 M                                                        
+Non-trainable params: 0                                                         
+Total params: 41.9 M                                                            
+Total estimated model params size (MB): 167                                     
+Epoch 0, global step 119: 'val_loss' reached 0.05295 (best 0.05295), saving model to './child-mind-institute-detect-sleep-states/yhbhvdz9/checkpoints/epoch=0-step=119.ckpt' as top 1
+Saved best model inf -> 0.052896184075796444
+Epoch 1, global step 238: 'val_loss' was not in top 1
+Epoch 2, global step 357: 'val_loss' reached 0.04231 (best 0.04231), saving model to './child-mind-institute-detect-sleep-states/yhbhvdz9/checkpoints/epoch=2-step=357.ckpt' as top 1
+Saved best model 0.052896184075796444 -> 0.042274823877960443
+Epoch 3, global step 476: 'val_loss' reached 0.03972 (best 0.03972), saving model to './child-mind-institute-detect-sleep-states/yhbhvdz9/checkpoints/epoch=3-step=476.ckpt' as top 1
+Saved best model 0.042274823877960443 -> 0.03971988273729009
+Epoch 4, global step 595: 'val_loss' reached 0.03123 (best 0.03123), saving model to './child-mind-institute-detect-sleep-states/yhbhvdz9/checkpoints/epoch=4-step=595.ckpt' as top 1
+Saved best model 0.03971988273729009 -> 0.031233797141270624
+Epoch 5, global step 714: 'val_loss' was not in top 1
+Epoch 6, global step 833: 'val_loss' was not in top 1
+Epoch 7, global step 952: 'val_loss' was not in top 1
+Epoch 8, global step 1071: 'val_loss' was not in top 1
+Global seed set to 42
+[2023-11-08 21:34:23,659][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_213424-vpg75252
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet_train_data_250
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/vpg75252
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_unet_train_data_250', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'Unet', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet', 'loss': 'bce'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7', '03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769'], 'valid_series_ids': ['89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type           ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN      │ 41.9 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram │ 13.0 K │
+│ 2 │ model.encoder           │ Unet           │ 24.4 M │
+│ 3 │ model.decoder           │ UNet1DDecoder  │ 17.5 M │
+└───┴─────────────────────────┴────────────────┴────────┘
+Trainable params: 41.9 M                                                        
+Non-trainable params: 0                                                         
+Total params: 41.9 M                                                            
+Total estimated model params size (MB): 167                                     
+Global seed set to 42
+Epoch 9, global step 1190: 'val_loss' reached 0.03100 (best 0.03100), saving model to './child-mind-institute-detect-sleep-states/yhbhvdz9/checkpoints/epoch=9-step=1190.ckpt' as top 1
+Saved best model 0.031233797141270624 -> 0.031002178967048395
+Epoch 0, global step 134: 'val_loss' reached 0.05664 (best 0.05664), saving model to './child-mind-institute-detect-sleep-states/vpg75252/checkpoints/epoch=0-step=134.ckpt' as top 1
+Saved best model inf -> 0.05656912796718033
+[2023-11-08 21:35:48,120][train.py][INFO] - Set Up DataModule
+wandb: Currently logged in as: pavlo4340. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in ./wandb/run-20231108_213551-uuaouvu4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run duration_5760_downsample_2_unet_train_data_all
+wandb: ⭐️ View project at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states
+wandb: 🚀 View run at https://wandb.ai/pavlo4340/child-mind-institute-detect-sleep-states/runs/uuaouvu4
+/home/psemchyshyn/projects/sleep-detection-other/kaggle-child-mind-institute-detect-sleep-states-main/.venv/lib/python3.10/site-packages/lightning_fabric/connector.py:554: UserWarning: 16 is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
+  rank_zero_warn(
+Using 16bit Automatic Mixed Precision (AMP)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+{'seed': 42, 'exp_name': 'duration_5760_downsample_2_unet_train_data_all', 'duration': 5760, 'downsample_rate': 2, 'upsample_rate': 1, 'epoch': 80, 'batch_size': 32, 'num_workers': 10, 'accelerator': 'auto', 'use_amp': True, 'debug': False, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'monitor': 'val_loss', 'monitor_mode': 'min', 'check_val_every_n_epoch': 1, 'offset': 10, 'sigma': 10, 'bg_sampling_rate': 0.5, 'augmentation': {'mixup_prob': 0.0, 'mixup_alpha': 0.4, 'cutmix_prob': 0.0, 'cutmix_alpha': 0.4}, 'post_process': {'score_th': 0.02, 'distance': 10}, 'labels': ['awake', 'event_onset', 'event_wakeup'], 'features': ['anglez', 'enmo', 'hour_sin', 'hour_cos'], 'optimizer': {'lr': 0.0005}, 'scheduler': {'num_warmup_steps': 0}, 'dir': {'data_dir': '/mnt/data/psemchyshyn/sleep-detection/data', 'processed_dir': '/mnt/data/psemchyshyn/sleep-detection/processed_data', 'output_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output', 'model_dir': '/mnt/data/psemchyshyn/sleep-detection/results/output/train', 'sub_dir': './'}, 'model': {'name': 'Spec2DCNN', 'architecture': 'Unet', 'encoder_name': 'resnet34', 'encoder_weights': 'imagenet', 'loss': 'bce'}, 'feature_extractor': {'name': 'CNNSpectrogram', 'base_filters': 64, 'kernel_sizes': [32, 16, '${downsample_rate}'], 'stride': '${downsample_rate}', 'sigmoid': True, 'reinit': True}, 'decoder': {'name': 'UNet1DDecoder', 'bilinear': False, 'se': False, 'res': False, 'scale_factor': 2, 'dropout': 0.2}, 'split': {'train_series_ids': ['038441c925bb', '0402a003dae9', '04f547b8017d', '05e1944c3818', '062cae666e2a', '062dbd4c95e6', '08db4255286f', '0a96f4993bd7', '0ce74d6d2106', '0d0ad1e77851', '0dee4fda51c3', '0ec9fc461819', '0ef7d94fde99', '0f572d690310', '0f9e60a8e56d', '10469f6765bf', '1087d7b0ff2e', '10f8bc1f7b07', '137771d19ca2', '137b99e936ab', '13b4d6a01d27', '148471991ffb', '154fe824ed87', '16fe2798ed0f', '1716cd4163b2', '188d4b7cd28b', '18a0ca03431d', '18b61dd5aae8', '1955d568d987', '1b92be89db4c', '1c7c0bad1263', '1d4569cbac0f', '1e6717d93c1d', '1f96b9668bdf', '207eded97727', '25e2b3dd9c3b', '2654a87be968', '27f09a6a858f', '292a75c0b94e', '29d3469bd15d', '2b0a1fa8eba8', '2b8d87addea9', '2e9ced2c7976', '2f7504d0f426', '2fc653ca75c7', '31011ade7c0a', '3318a0e3ed6f', '3452b878e596', '349c5562ee2c', '361366da569e', '3664fe9233f9', '3a9a9dc2cbd9', '3aceb17ef7bd', '3be1545083b7', '3be2f86c3e45', '3c336d6ba566', '3d53bfea61d6', '3df0da2e5966', '405df1b41f9f', '40dce6018935', '416354edd92a', '449766346eb1', '44a41bba1ee7', '44d8c02b369e', '4743bdde25df', '483d6545417f', '4a31811f3558', '4ab54be1a403', '4b45c36f8f5a', '519ae2d858b0', '51b23d177971', '51c49c540b4e', '51fdcc8d9fe7', '559ffb7c166a', '55a47ff9dc8a', '5aad18e7ce64', '5acc9d63b5fd', '5c088d7e916c', '5c55a5e717d6', '5f40907ec171', '5f76965e10cf', '5ffd5e1e81ac', '60d31b0bec3b', '60e51cad2ffb', '612aa8ba44e2', '655f19eabf1e', '67f5fc60e494', '694faf956ebf', '6bf95a3cf91c', '6ca4f4fca6a2', '6d6b9d22d48a', '6ee4ade1f2bd', '702bb5387b1e', '703b5efa9bc1', '72ba4a8afff4', '72bbd1ac3edf', '72d2234e84e4', '73fb772e50fb', '7476c0bd18d2', '7504165f497d', '752900afe3a6', '77ca4db83644', '7822ee8fe3ec', '78569a801a38', '785c9ca4eff7', '7df249527c63', '7fd4284b7ee8', '804594bb1f06', '808652a666c6', '83fa182bec3a', '844f54dcab89', '854206f602d0', '87a6cbb7c4ed', '8877a6586606', '8a22387617c3', '8a306e0890c0', '8b159a98f485', '8b8b9e29171c', '8e32047cbc1f', '90eac42a9ec9', '91127c2b0e60', '91cb6c98201f', '9277be28a1cf', '927dd0c35dfd', '939932f1822d', '971207c6a525', '99237ce045e4', '9a340507e36a', '9aed9ee12ae2', '9c91c546e095', '9ee455e4770d', 'a167532acca2', 'a261bc4b7470', 'a2b0a64ec9cf', 'a3e59c2ce3f6', 'a4e48102f402', 'a596ad0b82aa', 'a681f9b04b21', 'a81f4472c637', 'a9a2f7fac455', 'a9e5f5314bcb', 'aa81faa78747', 'ad425f3ee76d', 'aed3850f65f0', 'af91d9a50547', 'b364205aba43', 'b4b75225b224', 'b7188813d58a', 'b737f8c78ec5', 'b750c8c1556c', 'b84960841a75', 'ba8083a2c3b8', 'bf00506437aa', 'bfa54bd26187', 'bfe41e96d12f', 'c107b5789660', 'c289c8a823e0', 'c3072a759efb', 'c38707ef76df', 'c535634d7dcd', 'c5365a55ebb7', 'c5d08fc3e040', 'c6788e579967', 'c68260cc9e8f', 'c75b4b207bea', 'c7b1283bb7eb', 'c7b2155a4a47', 'c7d693f24684', 'c8053490cec2', 'ca730dbf521d', 'ca732a3c37f7', 'cca14d1966c1', 'ce85771a714c', 'ce9164297046', 'cf13ed7e457a', 'cfeb11428dd7', 'd043c0ca71cd', 'd0f613c700f7', 'd150801f3145', 'd25e479ecbb7', 'd2d6b9af0553', 'd2fef7e4defd', 'd3dddd3c0e00', 'd515236bdeec', 'd5be621fd9aa', 'd5e47b94477e', 'd93b0c7de16b', 'd9e887091a5c', 'dacc6d652e35', 'db5e0ee1c0ab', 'db75092f0530', 'dc80ca623d71', 'de6fedfb6139', 'df33ae359fb5', 'dfc3ccebfdc9', 'dff367373725', 'e0686434d029', 'e0d7b0dcf9f3', 'e11b9d69f856', 'e1f2a4f991cb', 'e1f5abb82285', 'e30cb792a2bc', 'e34b496b84ce', 'e4500e7e19e1', 'e586cbfa7762', 'e69aff66e0cb', 'e6ddbaaf0639', 'e867b5133665', 'e8d0a37c3eba', 'ea0770830757', 'ebd76e93ec7d', 'ece2561f07e9', 'efbfc4526d58', 'f2c2436cf7b7', 'f6d2cc003183', 'f88e18cb4100', 'f8a8da8bdd00', 'f981a0805fd0', 'fa149c3c4bde', 'fb223ed2278c', 'fcca183903b7', '03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2'], 'valid_series_ids': ['03d92c9f6f8a', '0cd1e3d0ed95', '0cfc06c129cc', '12d01911d509', '1319a1935f48', '1762ab70ec76', '280e08693c6d', '29c75c018220', '2cd2340ca14d', '2fbbee1a38e3', '33ceeba8918a', '35826366dfc7', '3665c86afaf5', '390b487231ce', '4ac356361be9', '4feda0596965', '55b7f5c99930', '599ca4ed791b', '5e816f11f5c3', '5f94bb3e1bed', '601559e1777d', '653622ac8363', '6a4cd123bd69', '76237b9406d5', '8898e6db816d', '89bd631d1769', '89c7daa72eee', '8becc76ea607', '8f6f15b9f598', '8fb18e36697d', '99b829cbad2d', '9b9cd7b7af8c', '9ddd40f2cb36', '9fbdeffbe2ba', 'a88088855de5', 'b1831c4979da', 'b7fc34995d0f', 'bb5612895813', 'bccf2f2819f8', 'bdfce9ce62b9', 'c908a0ad3e31', 'ccdee561ee5d', 'd8de352c2657', 'def21f50dd3c', 'e2a849d283c0', 'e2b60820c325', 'ebb6fae8ed43', 'ee4e0e3afd3d', 'eec197a4bdca', 'eef041dd50aa', 'f0482490923c', 'f564985ab692', 'f56824b503a0', 'f7eb179216c2', 'fbf33b1a2c10', 'fe90110788d2']}}
+3 <class 'int'>
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                    ┃ Type           ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                   │ Spec2DCNN      │ 41.9 M │
+│ 1 │ model.feature_extractor │ CNNSpectrogram │ 13.0 K │
+│ 2 │ model.encoder           │ Unet           │ 24.4 M │
+│ 3 │ model.decoder           │ UNet1DDecoder  │ 17.5 M │
+└───┴─────────────────────────┴────────────────┴────────┘
+Trainable params: 41.9 M                                                        
+Non-trainable params: 0                                                         
+Total params: 41.9 M                                                            
+Total estimated model params size (MB): 167                                     
+Epoch 10, global step 1309: 'val_loss' reached 0.02884 (best 0.02884), saving model to './child-mind-institute-detect-sleep-states/yhbhvdz9/checkpoints/epoch=10-step=1309.ckpt' as top 1
+Saved best model 0.031002178967048395 -> 0.028825988552058177
+Epoch 1, global step 268: 'val_loss' reached 0.04368 (best 0.04368), saving model to './child-mind-institute-detect-sleep-states/vpg75252/checkpoints/epoch=1-step=268.ckpt' as top 1
+Saved best model 0.05656912796718033 -> 0.043633917423224526
+Epoch 0, global step 149: 'val_loss' reached 0.05103 (best 0.05103), saving model to './child-mind-institute-detect-sleep-states/uuaouvu4/checkpoints/epoch=0-step=149.ckpt' as top 1
+Saved best model inf -> 0.05098961388679924
+Epoch 11, global step 1428: 'val_loss' was not in top 1
+Epoch 2, global step 402: 'val_loss' reached 0.03923 (best 0.03923), saving model to './child-mind-institute-detect-sleep-states/vpg75252/checkpoints/epoch=2-step=402.ckpt' as top 1
+Saved best model 0.043633917423224526 -> 0.039254269244361525
+Epoch 12, global step 1547: 'val_loss' was not in top 1
+Epoch 1, global step 298: 'val_loss' reached 0.03771 (best 0.03771), saving model to './child-mind-institute-detect-sleep-states/uuaouvu4/checkpoints/epoch=1-step=298.ckpt' as top 1
+Saved best model 0.05098961388679924 -> 0.037756907374332876
+Epoch 3, global step 536: 'val_loss' reached 0.03042 (best 0.03042), saving model to './child-mind-institute-detect-sleep-states/vpg75252/checkpoints/epoch=3-step=536.ckpt' as top 1
+Saved best model 0.039254269244361525 -> 0.030405007803789044
+Epoch 13, global step 1666: 'val_loss' was not in top 1
+Epoch 4, global step 670: 'val_loss' was not in top 1
+Epoch 2, global step 447: 'val_loss' was not in top 1
+Epoch 14, global step 1785: 'val_loss' was not in top 1
+Epoch 5, global step 804: 'val_loss' was not in top 1
+Epoch 3, global step 596: 'val_loss' reached 0.02891 (best 0.02891), saving model to './child-mind-institute-detect-sleep-states/uuaouvu4/checkpoints/epoch=3-step=596.ckpt' as top 1
+Saved best model 0.037756907374332876 -> 0.02893671119548627
+Epoch 15, global step 1904: 'val_loss' was not in top 1
+Epoch 6, global step 938: 'val_loss' was not in top 1
+Epoch 4, global step 745: 'val_loss' was not in top 1
+Epoch 16, global step 2023: 'val_loss' was not in top 1
+Epoch 7, global step 1072: 'val_loss' reached 0.02829 (best 0.02829), saving model to './child-mind-institute-detect-sleep-states/vpg75252/checkpoints/epoch=7-step=1072.ckpt' as top 1
+Saved best model 0.030405007803789044 -> 0.028277577257632643
+Epoch 8, global step 1206: 'val_loss' was not in top 1
+Epoch 17, global step 2142: 'val_loss' reached 0.02855 (best 0.02855), saving model to './child-mind-institute-detect-sleep-states/yhbhvdz9/checkpoints/epoch=17-step=2142.ckpt' as top 1
+Saved best model 0.028825988552058177 -> 0.028537365072869407
+Epoch 5, global step 894: 'val_loss' was not in top 1
+Epoch 9, global step 1340: 'val_loss' was not in top 1
+Epoch 18, global step 2261: 'val_loss' was not in top 1
+Epoch 6, global step 1043: 'val_loss' was not in top 1
+Epoch 10, global step 1474: 'val_loss' was not in top 1
+Epoch 19, global step 2380: 'val_loss' was not in top 1
+Epoch 7, global step 1192: 'val_loss' was not in top 1
+Epoch 11, global step 1608: 'val_loss' was not in top 1
+Epoch 20, global step 2499: 'val_loss' was not in top 1
+Epoch 12, global step 1742: 'val_loss' was not in top 1
+Epoch 8, global step 1341: 'val_loss' was not in top 1
+Epoch 21, global step 2618: 'val_loss' was not in top 1
+Epoch 13, global step 1876: 'val_loss' was not in top 1
+Epoch 9, global step 1490: 'val_loss' was not in top 1
+Epoch 22, global step 2737: 'val_loss' was not in top 1
+Epoch 14, global step 2010: 'val_loss' reached 0.02717 (best 0.02717), saving model to './child-mind-institute-detect-sleep-states/vpg75252/checkpoints/epoch=14-step=2010.ckpt' as top 1
+Saved best model 0.028277577257632643 -> 0.027159464964053675
+Epoch 10, global step 1639: 'val_loss' was not in top 1
+Epoch 23, global step 2856: 'val_loss' was not in top 1
+Epoch 15, global step 2144: 'val_loss' was not in top 1

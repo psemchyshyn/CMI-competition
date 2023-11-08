@@ -2,6 +2,8 @@ from typing import Union
 
 import torch.nn as nn
 from omegaconf import DictConfig
+import segmentation_models_pytorch as smp
+
 
 from src.models.decoder.lstmdecoder import LSTMDecoder
 from src.models.decoder.mlpdecoder import MLPDecoder
@@ -108,8 +110,19 @@ def get_decoder(cfg: DictConfig, n_channels: int, n_classes: int, num_timesteps:
 
     return decoder
 
-# def get_encoder(cfg):
-#     if cfg.model.architecture == "Unet":
+def get_encoder(cfg, in_channels):
+    print(cfg)
+    print(in_channels, type(in_channels))
+    if cfg.model.architecture == "Unet":
+        return smp.Unet(encoder_name=cfg.model.encoder_name, encoder_weights=cfg.model.encoder_weights, in_channels=in_channels, classes=1)
+    elif cfg.model.architecture == "Unet++":
+        return smp.UnetPlusPlus(encoder_name=cfg.model.encoder_name, encoder_weights=cfg.model.encoder_weights, in_channels=in_channels, classes=1)
+    elif cfg.model.architecture == "manet":
+        return smp.MAnet(encoder_name=cfg.model.encoder_name, encoder_weights=cfg.model.encoder_weights, in_channels=in_channels, classes=1)
+    elif cfg.model.architecture == "pan":
+        return smp.PAN(encoder_name=cfg.model.encoder_name, encoder_weights=cfg.model.encoder_weights, in_channels=in_channels, classes=1)
+    elif cfg.model.architecture == "deeplab+":
+        return smp.DeepLabV3Plus(encoder_name=cfg.model.encoder_name, encoder_weights=cfg.model.encoder_weights, in_channels=in_channels, classes=1)
 
 
 def get_model(cfg: DictConfig, feature_dim: int, n_classes: int, num_timesteps: int) -> MODELS:
@@ -117,13 +130,13 @@ def get_model(cfg: DictConfig, feature_dim: int, n_classes: int, num_timesteps: 
     if cfg.model.name == "Spec2DCNN":
         feature_extractor = get_feature_extractor(cfg, feature_dim, num_timesteps)
         decoder = get_decoder(cfg, feature_extractor.height, n_classes, num_timesteps)
+        encoder = get_encoder(cfg, feature_extractor.out_chans)
 
         model = Spec2DCNN(
             feature_extractor=feature_extractor,
             decoder=decoder,
-            encoder_name=cfg.model.encoder_name,
-            in_channels=feature_extractor.out_chans,
-            encoder_weights=cfg.model.encoder_weights,
+            encoder=encoder,
+            loss_type=cfg.model.loss,
             mixup_alpha=cfg.augmentation.mixup_alpha,
             cutmix_alpha=cfg.augmentation.cutmix_alpha,
         )

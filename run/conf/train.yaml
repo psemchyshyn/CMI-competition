@@ -18,7 +18,7 @@ defaults:
   - split: fold_0
 
 seed: 42
-exp_name: duration_5760_downsample_2_unet_batch_size_32
+exp_name: duration_5760_downsample_2_unet_train_data_all
 duration: 5760 # duration * 5 = 秒数
 downsample_rate: 2
 upsample_rate: 1
@@ -43,7 +43,7 @@ bg_sampling_rate: 0.5
 
 # augmentation
 augmentation:
-  mixup_prob: 0.9
+  mixup_prob: 0.0
   mixup_alpha: 0.4
   cutmix_prob: 0.0
   cutmix_alpha: 0.4

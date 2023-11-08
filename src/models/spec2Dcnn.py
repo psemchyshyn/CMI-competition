@@ -1,6 +1,5 @@
 from typing import Optional
 
-import segmentation_models_pytorch as smp
 import torch
 import torch.nn as nn
 
@@ -13,24 +12,25 @@ class Spec2DCNN(nn.Module):
         self,
         feature_extractor: nn.Module,
         decoder: nn.Module,
-        encoder_name: str,
-        in_channels: int,
-        encoder_weights: Optional[str] = None,
+        encoder: nn.Module,
+        loss_type,
         mixup_alpha: float = 0.5,
         cutmix_alpha: float = 0.5,
     ):
         super().__init__()
         self.feature_extractor = feature_extractor
-        self.encoder = smp.Unet(
-            encoder_name=encoder_name,
-            encoder_weights=encoder_weights,
-            in_channels=in_channels,
-            classes=1,
-        )
+        self.encoder = encoder
         self.decoder = decoder
         self.mixup = Mixup(mixup_alpha)
         self.cutmix = Cutmix(cutmix_alpha)
-        self.loss_fn = nn.BCEWithLogitsLoss()
+
+        self.losses_objs = {
+            "mse": nn.MSELoss(),
+            "bce": nn.BCEWithLogitsLoss(),
+            "kld": nn.KLDivLoss()
+        }
+
+        self.loss_types = loss_type.split("+")
 
     def forward(
         self,
@@ -59,7 +59,12 @@ class Spec2DCNN(nn.Module):
 
         output = {"logits": logits}
         if labels is not None:
-            loss = self.loss_fn(logits, labels)
+            loss = None
+            for loss_type in self.loss_types:
+                if loss is None:
+                    loss = self.losses_objs[loss_type](logits, labels)
+                else:
+                    loss = loss + self.losses_objs[loss_type](logits, labels)
             output["loss"] = loss
 
         return output
