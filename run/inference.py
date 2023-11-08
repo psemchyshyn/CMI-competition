@@ -113,6 +113,8 @@ def make_submission(
 def main(cfg: DictConfig):
     seed_everything(cfg.seed)
 
+    print(cfg)
+
     with trace("load test dataloader"):
         test_dataloader = get_test_dataloader(cfg)
     with trace("load model"):
