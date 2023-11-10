@@ -18,7 +18,7 @@ defaults:
   - split: fold_0
 
 seed: 42
-exp_name: duration_5760_downsample_2_unet_train_data_all
+exp_name: duration_5760_downsample_2_unet_two_labels
 duration: 5760 # duration * 5 = 秒数
 downsample_rate: 2
 upsample_rate: 1
@@ -55,7 +55,7 @@ post_process:
 
 # label
 labels:
-  - "awake"
+  # - "awake"
   - "event_onset"
   - "event_wakeup"
 

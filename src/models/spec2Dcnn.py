@@ -59,6 +59,8 @@ class Spec2DCNN(nn.Module):
 
         output = {"logits": logits}
         if labels is not None:
+            # labels = labels[:, :, 1:]
+            # print(logits.shape, labels.shape)
             loss = None
             for loss_type in self.loss_types:
                 if loss is None:
